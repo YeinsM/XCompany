@@ -6,13 +6,10 @@ namespace XCompany.Data.Models
     {
         [Key]
         public int ClientId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "The first name is required")]
         public string FirstName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "The last name is required")]
         public string LastName { get; set; }
-        [Required]
-        public int AddressId { get; set; }
-
-        public Address Address { get; set; }
+        public List<Address> Addresses { get; set; }
     }
 }
