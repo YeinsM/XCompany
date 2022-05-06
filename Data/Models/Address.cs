@@ -5,9 +5,10 @@ namespace XCompany.Data.Models
     public class Address
     {
         [Key]
-        public int AdressId { get; set; }
+        public int AddressId { get; set; }
         [Required]
         public string Location { get; set; }
-        public int Client_Id { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
     }
 }

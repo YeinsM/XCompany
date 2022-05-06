@@ -2,10 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace XCompany.Data.Models
 {
-    public class Client
+    public class Customer
     {
         [Key]
-        public int ClientId { get; set; }
+        public int CustomerId { get; set; }
         [Required(ErrorMessage = "The first name is required")]
         public string FirstName { get; set; }
         [Required(ErrorMessage = "The last name is required")]
