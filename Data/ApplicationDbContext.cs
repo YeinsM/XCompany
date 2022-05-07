@@ -10,13 +10,5 @@ namespace XCompany.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-			modelBuilder.Entity<Address>()
-            .HasOne(customer => customer.Customer)
-            .WithMany(address => address.Addresses)
-            .HasForeignKey(customerId => customerId.CustomerId)
-            .OnDelete(DeleteBehavior.Cascade);
-        }
     }
 }
