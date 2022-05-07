@@ -7,4 +7,22 @@ const getAll = async (state, name) => {
   state(request.data);
 };
 
-export { getAll };
+const getById = async (id, name) => {
+  await axios
+    .get(`${url}/${name}/${id}`)
+    .then((response) => response.data)
+    .catch("problems");
+};
+
+const post = async (name, data) => {
+  await axios.post(`${url}/${name}`, data).then((response) => {
+    console.log(response.data);
+    console.log(response.status);
+  });
+};
+
+const put = async (id, data) => {
+  await axios.put(`${url}/${id}`, data).then((response) => response.status);
+};
+
+export { getAll, getById, post, put };

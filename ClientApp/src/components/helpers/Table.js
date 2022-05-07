@@ -1,18 +1,16 @@
-import { useEffect, useState } from "react";
-import { getAll } from "./store";
+import { useHistory } from "react-router-dom";
 
-export const CustomerTable = () => {
-  const [customers, setCustomers] = useState(null);
+export const CustomerTable = ({ customers }) => {
 
-  useEffect(() => {
-    getAll(setCustomers, "customers");
-  }, []);
+  const history = useHistory();
 
   return (
     <div>
       <button
         className="btn-floating btn-large waves-effect waves-light green"
-        onClick={() => {}}
+        onClick={() => {
+          history.push(`/customerform/${0}`);
+        }}
         style={{ float: "right" }}
       >
         <i className="material-icons">add</i>
@@ -38,7 +36,10 @@ export const CustomerTable = () => {
                 <td>
                   <button
                     className="btn-floating waves-effect waves-light yellow accent-4"
-                    onClick={() => {}}
+                    onClick={() => {
+                      const id = customer.customerId;
+                      history.push(`/customerform/${id}`);
+                    }}
                   >
                     <i className="material-icons">edit</i>
                   </button>
@@ -57,7 +58,6 @@ export const CustomerTable = () => {
       ) : (
         "There is not customers"
       )}
-      
     </div>
   );
 };

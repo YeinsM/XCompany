@@ -10,6 +10,5 @@ namespace XCompany.Data.Models
         public string FirstName { get; set; }
         [Required(ErrorMessage = "The last name is required")]
         public string LastName { get; set; }
-        public List<Address> Addresses { get; set; }
     }
 }
